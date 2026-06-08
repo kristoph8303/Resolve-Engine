@@ -1,118 +1,106 @@
-# 📘 Cyclic Decision Engine (CDE)
+# Showdown Engine
 
-## Overview
+A deterministic duel resolution system built on a symmetric 3-layer decision model.
 
-The Cyclic Decision Engine is a deterministic multi-axis competitive decision system that preserves strategic diversity, avoids dominant strategies, and maintains meaningful uncertainty through cyclic resolution mechanics.
+## Core Model
 
----
+Each player submits a 5-part state vector:
 
-## Core Concept
+- **Zone** (0–2)
+- **Action** (0–2)
+- **Intensity** (0–2)
+- **Reflex** (0–2)
+- **Draw Timing** (0–2)
 
-The engine evaluates two participants using three interacting decision axes:
+Outcome is resolved using deterministic symmetric operators:
 
-- **ZR (Zone Read)** - Cyclic dominance: 0→2→1→0
-- **AM (Action Model)** - Cyclic dominance: 0→1→2→0
-- **IC (Intensity Control)** - Absolute difference dominance: |a-b|=2
+- **ZR** (Zone Relation)
+- **AM** (Action Matrix)
+- **IC** (Intensity Comparison)
+- **Draw Window** modifier (optional layer)
 
-Each axis follows a cyclic dominance structure, ensuring no permanent optimal strategy exists.
+## Properties
 
----
+- ✅ Full-state enumeration verified (729-state sweep)
+- ✅ Symmetry invariance confirmed (0% bias in deterministic sweep)
+- ✅ No dominant strategy exists under cyclic core design
 
-## System Properties
+## Ghost Mirror (Optional Layer)
 
-- ✅ Deterministic resolution
-- ✅ Full-state symmetry (validated via exhaustive enumeration)
-- ✅ No dominant strategy under cyclic equilibrium
-- ✅ Stable entropy distribution across state space
+A non-strategic stand-in system that generates synthetic opponent states by applying bounded stochastic variation to a reference player state.
 
----
+### Purpose:
+- Simulation
+- Testing
+- AI-less opponent modeling
+- Replay scaffolding
 
-## Resolution Mechanics
+**The Ghost Mirror does NOT affect core resolution logic.**
 
-### Total Score Calculation
+## Philosophy
 
-```
-TOTAL SCORE = ZR(A, B) + AM(A, B) + IC(A, B)
-```
-
-Each axis returns:
-- **+1** (win)
-- **0** (tie)
-- **-1** (loss)
-
-### Result Interpretation
-
-- **Score > 0** → Player A wins
-- **Score < 0** → Player B wins
-- **Score = 0** → Tie
-
----
-
-## Validation Methods
-
-- ✅ Full-state sweep (729-state evaluation)
-- ✅ Monte Carlo sampling
-- ✅ Participant swap symmetry test
-- ✅ Vectorized numpy verification
-
----
-
-## Core Guarantee
-
-The system maintains:
-
-> **Symmetry under participant swap**  
-> **Zero structural bias under full enumeration**  
-> **Stable cyclic interaction across all axes**
-
----
-
-## Status
-
-| Component | Status |
-|-----------|--------|
-| Core | Frozen ✓ |
-| Validation | Complete ✓ |
-| Layer System | Optional (future expansion) |
-
----
-
-## Usage
-
-### Run Core Engine with Validation
-
-```bash
-python engine.py
-```
-
-### Run Validation Suite
-
-```bash
-python validate.py
-```
+> A deterministic system where complexity emerges from structure, not randomness.
 
 ---
 
 ## Project Structure
 
 ```
-Resolve-Engine/
-├── README.md          # This file
-├── engine.py          # Core mechanic (deterministic resolver)
-├── validate.py        # Validation suite (sweep, Monte Carlo, swap test)
-└── CDE_MISSION.md     # Detailed mission & concept documentation
+showdown-engine/
+├── engine/
+│   ├── core.py              # ZR / AM / IC + resolve()
+│   ├── tests.py             # sweep, symmetry, bias checks
+│
+├── ghost/
+│   ├── mirror.py            # Ghost stand-in logic
+│
+├── sim/
+│   ├── random_sim.py        # Random state simulations
+│   ├── numpy_sim.py         # Vectorized numpy simulations
+│
+├── ui/
+│   ├── index.html           # Showdown UI
+│   ├── styles.css           # Styling (optional split)
+│   ├── app.js               # Application logic (optional split)
+│
+├── README.md                # This file
+└── requirements.txt         # Python dependencies
 ```
 
 ---
 
 ## Quick Start
 
-1. **Review the mechanics**: See `CDE_MISSION.md`
-2. **Run the engine**: `python engine.py`
-3. **Validate symmetry**: `python validate.py`
+### 1. Run Core Engine Tests
+
+```bash
+python -m engine.tests
+```
+
+### 2. Run Simulations
+
+```bash
+# Random simulation
+python -m sim.random_sim
+
+# NumPy vectorized simulation
+python -m sim.numpy_sim
+```
+
+### 3. Launch UI
+
+Open `ui/index.html` in a web browser.
+
+---
+
+## Validation
+
+- Full 729-state sweep confirms zero structural bias
+- Participant swap symmetry: `resolve(A, B) = -resolve(B, A)`
+- No dominant strategy in any state subset
 
 ---
 
 ## License
 
-This is the Cyclic Decision Engine core specification.
+Showdown Engine - Deterministic Duel Resolution System
