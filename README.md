@@ -9,15 +9,14 @@ Each player submits a 5-part state vector:
 - **Zone** (0–2)
 - **Action** (0–2)
 - **Intensity** (0–2)
-- **Reflex** (0–2)
-- **Draw Timing** (0–2)
+
 
 Outcome is resolved using deterministic symmetric operators:
 
 - **ZR** (Zone Relation)
 - **AM** (Action Matrix)
 - **IC** (Intensity Comparison)
-- **Draw Window** modifier (optional layer)
+
 
 ## Properties
 
