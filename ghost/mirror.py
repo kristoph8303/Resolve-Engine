@@ -2,14 +2,11 @@ import random
 
 def ghost_mirror(A, noise=1):
     """
-    Ghost stand-in logic: creates a perturbed copy of state A
-    with optional jitter/noise to simulate uncertainty.
-    
+    Ghost stand-in logic
+    for user
     Args:
         A: tuple of 3 values (0, 1, or 2)
-        noise: maximum deviation per axis (default: 1)
-    
-    Returns:
+        noise: maximum 
         tuple: jittered state, bounded to [0, 2]
     """
     def jitter(x):
@@ -24,9 +21,8 @@ def ghost_ensemble(A, n=10, noise=1):
     Generate ensemble of ghost mirrors for statistical analysis.
     
     Args:
-        A: tuple of 3 values (0, 1, or 2)
-        n: number of ghost mirrors to generate
-        noise: maximum deviation per axis
+        A: tuple of 3 values (0, 1)
+
     
     Returns:
         list: n ghost mirror states
