@@ -1,6 +1,6 @@
 # Showdown Engine
 
-A deterministic duel resolution system built on a symmetric 3-layer decision model.
+A deterministic resolution system built on a symmetric 3-layer decision model.
 
 ## Core Model
 
