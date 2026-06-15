@@ -4,7 +4,7 @@ A deterministic duel resolution system built on a symmetric 3-layer decision mod
 
 ## Core Model
 
-Each player submits a 5-part state vector:
+Each player submits a 3-part vector:
 
 - **Zone** (0–2)
 - **Action** (0–2)
