@@ -1,5 +1,3 @@
-# Showdown Engine
-
 A deterministic resolution system built on a symmetric 3-layer decision model.
 
 ## Core Model
