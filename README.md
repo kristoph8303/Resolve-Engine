@@ -24,12 +24,11 @@ Outcome is resolved using deterministic symmetric operators:
 
 ## Ghost Mirror (Optional Layer)
 
-A non-strategic stand-in system that generates synthetic opponent states by applying bounded stochastic variation to a reference player state.
 
-### Purpose:
+
+### Purpose: To observe user behavior to exactly replicate his/her mechanics. A optional stand-in for 
 - Simulation
 - Testing
-- AI-less opponent modeling
 - Replay scaffolding
 
 **The Ghost Mirror does NOT affect core resolution logic.**
@@ -99,5 +98,3 @@ Open `ui/index.html` in a web browser.
 ---
 
 ## License
-
-Showdown Engine - Deterministic Duel Resolution System
